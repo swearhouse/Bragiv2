@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Settings - Bragi</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='bragi.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
+  </head>
+  <body>
+    <main>
+      <div class="settings-heading">
+        <h1>Settings</h1>
+        <a class="back-link" href="{{ url_for('index') }}">
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+          <span>Back to player</span>
+        </a>
+      </div>
+      <section class="settings-card" aria-label="Playback settings">
+        <label class="setting-row" for="loudness-normalization">
+          <span class="setting-text">
+            <span class="setting-title">Loudness normalization</span>
+            <span class="setting-description">
+              Turn down tracks that YouTube measures as louder than its reference level,
+              so songs play at a similar volume. Quiet tracks are not boosted, and
+              Chromecast playback is not affected.
+            </span>
+          </span>
+          <span class="setting-toggle">
+            <input id="loudness-normalization" type="checkbox" role="switch">
+            <span class="track" aria-hidden="true"></span>
+          </span>
+        </label>
+        <label class="setting-row" for="auto-scroll">
+          <span class="setting-text">
+            <span class="setting-title">Auto-scroll to current track</span>
+            <span class="setting-description">
+              Keep the playlist scrolled to the track that is playing, including after
+              you scroll away for a few seconds.
+            </span>
+          </span>
+          <span class="setting-toggle">
+            <input id="auto-scroll" type="checkbox" role="switch">
+            <span class="track" aria-hidden="true"></span>
+          </span>
+        </label>
+        <label class="setting-row" for="auto-shuffle">
+          <span class="setting-text">
+            <span class="setting-title">Auto-Shuffle playlist on load</span>
+            <span class="setting-description">
+              Shuffle the track order whenever you open a playlist.
+            </span>
+          </span>
+          <span class="setting-toggle">
+            <input id="auto-shuffle" type="checkbox" role="switch">
+            <span class="track" aria-hidden="true"></span>
+          </span>
+        </label>
+        <label class="setting-row" for="visualizer-select">
+          <span class="setting-text">
+            <span class="setting-title">Visualizer</span>
+            <span class="setting-description">
+              Draws an audio visualizer behind the Now playing card. Takes effect on the
+              next track, and is unavailable if the audio source blocks it.
+            </span>
+          </span>
+          <select id="visualizer-select">
+            <option value="bars">Bars</option>
+            <option value="mirror">Mirrored bars</option>
+            <option value="wave">Waveform</option>
+            <option value="radial">Radial</option>
+            <option value="area">Spectrum area</option>
+            <option value="off">Off</option>
+          </select>
+        </label>
+      </section>
+      <p id="settings-status" role="status" aria-live="polite"></p>
+    </main>
+    <script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+  </body>
+</html>

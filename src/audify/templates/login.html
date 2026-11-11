@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign in - Bragi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  </head>
+  <body>
+    <main>
+      <h1>Sign in to Bragi</h1>
+      <p>Enter your username and password to continue.</p>
+      <form id="login-form">
+        <label for="username">Username
+          <input id="username" name="username" autocomplete="username" required>
+        </label>
+        <label for="password">Password
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button type="submit">Sign in</button>
+      </form>
+      <p id="error" role="alert" aria-live="polite"></p>
+    </main>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+  </body>
+</html>
